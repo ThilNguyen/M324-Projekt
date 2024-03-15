@@ -2,11 +2,10 @@ version: '3.8'
 
 services:
   todo-app:
-    build: .
+    image: nginx:latest
     ports:
       - "8080:80"
+    volumes:
+      - ./path/to/your/todo/app:/usr/share/nginx/html
     environment:
       - DATABASE_URL=postgres://todo_user:todo_password@database/todo
-
-volumes:
-  todo-db-data:
