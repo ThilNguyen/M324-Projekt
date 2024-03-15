@@ -2,10 +2,8 @@ version: '3.8'
 
 services:
   todo-app:
-    image: nginx:latest
+    build: .
     ports:
-      - "8080:80"
+      - '8080:80' # Portweiterleitung: Auf Port 8080 auf dem Host zugänglich machen
     volumes:
-      - ./path/to/your/todo/app:/usr/share/nginx/html
-    environment:
-      - DATABASE_URL=postgres://todo_user:todo_password@database/todo
+      - ./index.html:/usr/share/nginx/html/index.html # Passe den Pfad zur HTML-Datei an
